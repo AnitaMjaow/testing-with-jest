@@ -43,3 +43,25 @@ test('Expected import statement for stack module to exists in index.js', () => {
 	// Jest expect statement toBe(true)
 });
 
+test('Check if stack.js contains the functions push, pop, and peek.', () => {
+	const missingFunctions = [];
+	// list
+
+	if (!stack.hasOwnProperty('push')) {
+		missingFunctions.push('push');
+		// if this function is missing add to the list missingFunctions
+	}
+	if (!stack.hasOwnProperty('pop')) {
+		missingFunctions.push('pop');
+		// if this function is missing add to the list missingFunctions
+	}
+	if (!stack.hasOwnProperty('peek')) {
+		missingFunctions.push('peek');
+		// if this function is missing add to the list missingFunctions
+	}
+
+	if (missingFunctions.length > 0) {
+		// if missingFunctions length is larger than 0 show list
+		console.error(`Error: stack.js does not export the following functions: ${missingFunctions.join(', ')}`);
+	}
+});
