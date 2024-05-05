@@ -1,5 +1,4 @@
-import * as stack from './stack.js';
-// remove this import * as stack from './stack.js'; to test Jest in file: ../tests/stack.test.js
+
 
 window.onload = function () {
 	console.log("done");
