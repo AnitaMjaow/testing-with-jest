@@ -1,4 +1,5 @@
 import * as stack from './stack.js';
+// remove this import * as stack from './stack.js'; to test Jest in file: ../tests/stack.test.js
 
 window.onload = function () {
 	console.log("done");
@@ -9,7 +10,7 @@ window.onload = function () {
 	var display = document.getElementById('top_of_stack');
 
 	pop.addEventListener("click", function () {
-		var text = "Tog bort " + stack.popp(); // popp() istället för pop() för att testa funktionen alert.
+		var text = "Tog bort " + stack.pop();
 		alert(text);
 	});
 

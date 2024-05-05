@@ -17,3 +17,29 @@ test('peek on stack with two or more elements returns the top element', () => {
 	expect(stack.peek()).toBeDefined();
 	expect(stack.peek()).toBe(42);
 });
+
+
+const fs = require('fs');
+// Using the Node.js built-in module for working with FileSystem 
+const path = require('path');
+// Using Node.js module to define file directory
+
+test('Expected import statement for stack module to exists in index.js', () => {
+	const srcPath = path.resolve(__dirname, '../src');
+	// Define the file path
+	const indexPath = path.join(srcPath, 'index.js');
+	// Define the file name
+	const stackImportStatement = "import * as stack from './stack.js';";
+	// Define the stack statement
+	const testContent = fs.readFileSync(indexPath, 'utf8');
+	// Define character set for test file
+	const containsImportStatement = testContent.includes(stackImportStatement);
+	// Check if the stack import statement exists in index.js
+	if (!containsImportStatement) {
+		// if containsImportStatement does NOT contain statement show message
+		console.error('\x1b[31m', `Error: index.js does not contain the correct import statement: ${stackImportStatement}`);
+	}
+	expect(containsImportStatement).toBe(true);
+	// Jest expect statement toBe(true)
+});
+
